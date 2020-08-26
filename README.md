@@ -12,7 +12,10 @@ aaaa<br />
 ### `ubuntu 18 command`
 (code push to gitlab, not github)<br/>
 git push <br/>
+([publish code] deploy to github, NOT [source code])<br/>
 npm run deploy <br />
+(browser)<br/>
+https://aecom-clc.github.io/tictactoe/ <br/gi>
 
 ## Stage: Setup or Test
 ### `webapp`
