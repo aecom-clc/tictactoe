@@ -10,48 +10,48 @@ aibd<br />
 aaaa<br />
 
 ### `ubuntu 18 command`
-npm run build <br />
-firebase deploy <br />
-
+git push -u origin_gitlab master <br/>
+npm run deploy <br />
 
 ## Stage: Setup or Test
 ### `webapp`
+npm install gh-pages --save-dev <br/>
+
+(package.json) <br/>
+"homepage": "https://aecom-clc.github.io/tictactoe/", <br/>
+"scripts": {...<br/>
+"deploy": "gh-pages -d build"}, ... <br/><br/>
+
 rm -rf .git <br/>
 git init <br/>
 git add . <br/>
-git remote add origin git@gitlab.com:aecom.portal2/game-tictactoe.git <br/>
-git push -u origin master <br/>
-(git push) <br/>
+git commit -am "1st commit" <br/>
+(or) <br/>
+(git remote rename origin origin_gitlab) <br/><br/>
+
+git remote add origin https://github.com/aecom-clc/tictactoe.git <br/>
+[publish webapp on github]
+npm run deploy <br/><br/>
+
+[pull code on gitlab] <br/>
+git push -u origin_gitlab master <br/>
+
+[local test]
 npm i <br/>
 npm run start <br/>
 (browser)<br/>
 http://localhost:7002/react-tic-tac-toe/firstPlayer/Player1/secondPlayer/Player2
 
+
 ### `gitlab`
 aecom.portal2@gmail.com <br/>
 https://gitlab.com/profile/keys <br/>
 
-### `firebase`
-npm install -g firebase-tools <br/>
-or <br/>
-(curl -sL https://firebase.tools | bashfire)  <br/>
-(firebase logout) <br/>
-firebase login <br/>
-(aecom.clc@gmail.com)
-firebase init <br/><br/>
-
-? Which Firebase CLI features do you want to setup for this folder? Press Space to select features, then Enter to confirm your choices. <br/>
- ◯ Database: Deploy Firebase Realtime Database Rules <br/>
- ◯ Firestore: Deploy rules and create indexes for Firestore <br/>
- ◯ Functions: Configure and deploy Cloud Functions <br/>
-❯◯ Hosting: Configure and deploy Firebase Hosting sites <br/>
- ◯ Storage: Deploy Cloud Storage security rules <br/><br/>
-
-? What do you want to use as your public directory? build <br/>
-? Configure as a single-page app (rewrite all urls to /index.html)? Yes <br/>
-? File public/index.html already exists. Overwrite? No <br/><br/>
-
+### `github`
 aecom.clc@gmail.com <br/>
+va9aaaVa <br/>
+(create repository)<br/>
+tictactoe <br/>
 
 
 ## Resources: png to svg converter software (online)
