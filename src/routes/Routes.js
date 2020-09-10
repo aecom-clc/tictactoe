@@ -15,17 +15,19 @@ export default () => {
     <Router basename={process.env.PUBLIC_URL}>
       <div>
         <Route exact path="/" render={route => {
-            return <Setup {...route} game={game} />;
-          }}
+          return <Setup {...route} game={game} />;
+        }}
         />
+
         <Route path="/firstPlayer/:firstPlayer/secondPlayer/:secondPlayer" render={route => {
-            return <App {...route} game={game} />;
-          }}
+          return <App {...route} game={game} />;
+        }}
         />
-        <Route path="/leaderboard" render={route => {
+
+        {/* <Route path="/leaderboard" render={route => {
             return <LeaderBoard {...route} game={game} />;
           }}
-        />
+        /> */}
       </div>
     </Router>
   );

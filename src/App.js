@@ -6,9 +6,9 @@ import './App.scss';
 
 /**
  * Initialize the game asking for players information. Manage players
- * turns and set in the board filled slots.
- * @author Fernando Souza nandosouzafilho@gmail.com
+ * turns and set in the board filled slots. 
  **/
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,11 +26,15 @@ class App extends Component {
     this.onSlotClick_ = this.handleSlotClick_.bind(this);
   }
 
+  componentDidMount() {
+    console.log("***CDM: ", this.props.match.params);
+  }
   /**
    * Uses url parameters to create players.
    * @private
    **/
   setPlayersFromURL_() {
+    console.log("***", this.props.match.params);
     const { firstPlayer, secondPlayer } = this.props.match.params;
     this.props.game.playersManager_.addPlayer(firstPlayer);
     this.props.game.playersManager_.addPlayer(secondPlayer);

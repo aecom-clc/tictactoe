@@ -8,7 +8,7 @@
 }
 
 .setup-page input {
-  margin-top: 5px; 
+  margin-top: 0px; 
 }
 
 .setup-page label {
@@ -17,7 +17,7 @@
 
 .collumn {
   flex-grow: 1;
-  width: 50%;
+  // width: 50%;
 }
 
 .setup-page {
@@ -28,12 +28,14 @@
 
   .player [class*="icon"] {
     margin: 0 auto;
-    width: 140px;
-    height: 140px;
+    // width: 140px;
+    // height: 140px;
+    // width: 1%;
+    // height: 1%;
   }
 
   input {
-    width: 200px;
+    width: 130px;
     margin: 10px auto;
     display: block;
     font-size: 16px;
@@ -42,4 +44,44 @@
       color: #fff;
     }
   }
+}
+
+.button-style{
+  font-size: 26px;  
+}
+
+
+.icon-align-center {
+  text-align: center;
+  vertical-align: text-bottom;
+  margin: auto;
+}
+
+.icon-align-left {
+  text-align: left;
+  vertical-align: text-bottom;
+  margin: auto;
+}
+
+.icon-align-right {
+  text-align: right;
+  vertical-align: text-bottom;
+  margin: auto;
+}
+
+input {
+  text-align: center;
+}
+
+.font-center {
+  text-align: center;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
