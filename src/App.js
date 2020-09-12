@@ -93,6 +93,8 @@ class App extends Component {
       if (this.state.winner) {
         return (
           <p className="winner-message">
+            {console.log("[log: App.js, this.props]", this.props)}
+            {console.log("[log: App.js, this.props.game.board_]", this.props.game.board_)}
             Congratulations {this.state.winner.player.name}.
             {/* <Link to="/leaderboard">
               See leaderboard
@@ -108,6 +110,7 @@ class App extends Component {
           filledSlots={this.state.filledSlots}
           onSlotClick={this.onSlotClick_}
         />
+        {/* {console.log("app.js, this.state.winnerSlots: ", this.state.winnerSlots)} */}
 
         <Link className="button new-game-button" to="/">
           New game

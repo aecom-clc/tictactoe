@@ -17,7 +17,7 @@ const scale = keyframes`
 const Player1 = styled(X)`
   width: 100px;
   height: 100px;
-
+  
   ${props => props.winner && css`
     animation: ${scale} infinite alternate ease-in-out .54s;
   `}
@@ -26,7 +26,7 @@ const Player1 = styled(X)`
 const Player2 = styled(Circle)`
   width: 100px;
   height: 100px;
-
+  
   ${props => props.winner && css`
     animation: ${scale} infinite alternate ease-in-out .54s;
   `}
@@ -55,6 +55,11 @@ const SlotWrapper = styled.div`
 `;
 
 export const Slot = props => {
+  console.log("[log: Slot.js, props]", props);
+  if (props.winner == true) {
+    const winner_player_w = props.player;
+    console.log("[log: Slot.js, winner_player_w]", winner_player_w);
+  }
   return (
     <SlotWrapper
       data-testid={`Slot${props.index}`}
