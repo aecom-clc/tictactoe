@@ -31,7 +31,9 @@ class App extends Component {
 
   componentDidMount() {
     console.log("***CDM: ", this.props.match.params);
+    console.log("[log: App.js, this.props]", this.props);
     controlFlag = true;
+    // console.log("[log: App.js, w]", winner_player);
   }
   /**
    * Uses url parameters to create players.
@@ -83,6 +85,8 @@ class App extends Component {
     if (this.state.winnerSlots.length > 0) {
       return;
     }
+    // console.log("[log: App.js, this.state.winnerSlots]", this.state.winnerSlots);
+    // console.log("[log: App.js, this.props]", this.props);
     this.props.game.fillSlot(index);
     this.setState({
       filledSlots: new Map(this.props.game.getBoard())
@@ -126,6 +130,20 @@ class App extends Component {
     }
     return (
       <div className="tic-tac-toe-app">
+        {console.log("[log: App.js, player turn]", this.props.game.playersManager_.currentPlayerIndex_ + 1)}
+        <br />
+        <h3>
+          Turn: &nbsp;
+        {
+            ((this.props.game.playersManager_.currentPlayerIndex_ + 1) == 1)
+              ? this.props.match.params.firstPlayer
+              : this.props.match.params.secondPlayer
+          }
+        </h3>
+        <br />
+        <br />
+
+        {console.log("***App.js, this.state: ", this.state)}
         <Board
           winnerSlots={this.state.winnerSlots}
           filledSlots={this.state.filledSlots}
