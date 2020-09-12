@@ -9,6 +9,8 @@ import './App.scss';
  * turns and set in the board filled slots. 
  **/
 
+var controlFlag = false;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,8 @@ class App extends Component {
 
     this.state = {
       filledSlots: new Map(this.props.game.getBoard()),
-      winnerSlots: []
+      winnerSlots: [],
+      winnerPlayerId: '',
     };
     this.props.game.onGameEnd = this.onGameEnd_.bind(this);
     this.storage_ = new Storage();
@@ -28,6 +31,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log("***CDM: ", this.props.match.params);
+    controlFlag = true;
   }
   /**
    * Uses url parameters to create players.
@@ -85,6 +89,13 @@ class App extends Component {
     });
   }
 
+  myCallback = (winner_player) => {
+    if (controlFlag) {
+      console.log("[log: App.js, myCallback-winner_player]", winner_player);
+      controlFlag = false;
+    }
+  }
+
   /**
    * @inheritdoc
    **/
@@ -109,6 +120,7 @@ class App extends Component {
           winnerSlots={this.state.winnerSlots}
           filledSlots={this.state.filledSlots}
           onSlotClick={this.onSlotClick_}
+          myCallbackFromApp={this.myCallback}
         />
         {/* {console.log("app.js, this.state.winnerSlots: ", this.state.winnerSlots)} */}
 

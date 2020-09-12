@@ -59,7 +59,10 @@ export const Slot = props => {
   if (props.winner == true) {
     const winner_player_w = props.player;
     console.log("[log: Slot.js, winner_player_w]", winner_player_w);
-  }
+    props.myCallbackFromParent(winner_player_w);
+  };
+
+
   return (
     <SlotWrapper
       data-testid={`Slot${props.index}`}

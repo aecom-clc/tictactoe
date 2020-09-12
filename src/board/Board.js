@@ -27,6 +27,11 @@ class Board extends PureComponent {
     this.props.onSlotClick(index);
   }
 
+  myCallback = (winner_player) => {
+    console.log("[log: Board.js, myCallback-winner_player]", winner_player);
+    this.props.myCallbackFromApp(winner_player);
+  }
+
   /**
    * Renders board slots that will be fufilled by gamers' pieces.
    * @private 
@@ -44,6 +49,7 @@ class Board extends PureComponent {
           player={filledSlots.get(index)}
           index={index}
           onSlotClick={this.slotClick_}
+          myCallbackFromParent={this.myCallback}
         />
       );
     });
