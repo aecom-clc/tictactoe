@@ -93,6 +93,9 @@ class App extends Component {
     if (controlFlag) {
       console.log("[log: App.js, myCallback-winner_player]", winner_player);
       controlFlag = false;
+      this.setState({
+        winnerPlayerId: winner_player
+      })
     }
   }
 
@@ -106,7 +109,14 @@ class App extends Component {
           <p className="winner-message">
             {console.log("[log: App.js, this.props]", this.props)}
             {console.log("[log: App.js, this.props.game.board_]", this.props.game.board_)}
-            Congratulations {this.state.winner.player.name}.
+            {/* Congratulations {this.state.winner.player.name}. */}
+            Congratulations &nbsp;
+            {
+              (this.state.winnerPlayerId == 1)
+                ? this.props.match.params.firstPlayer
+                : this.props.match.params.secondPlayer
+            }
+            {/* Congratulations {this.state.winnerPlayerId}. */}
             {/* <Link to="/leaderboard">
               See leaderboard
             </Link> */}
