@@ -1,7 +1,21 @@
 -------------------------------------------------------------------
-update at : 20200826 ( ref 20200627 )
+update at : 20200912
 
 ## Stage: Deploy
+
+(check if necessary to change)<br/>
+git remote -v <br/>
+(make the change)<br/>
+git remote rename origin origin_gitlab<br/>
+git remote add origin https://github.com/aecom-clc/tictactoe.git<br/>
+(log: confirm the change)<br/>
+git remote -v<br/>
+npm run deploy<br/>
+
+(git push to gitlab) <br/>
+git push -u origin_gitlab master <br/>
+
+## Stage: Setup
 
 ### `docker`
 sudo docker run -p 7000:80 -p 7001:22 -p 7002:3000 -p 7003:3001 -p 7004:3900 -p 7005:8080 -p 7006:30301 -p 7007:30302 -p 7008:30303 -p 7009:30304 -v /home/cni/docker/sharedVol:/sharedVol -e RESOLUTION=1920x1080 --name aecomwebsite_platform source_ubu18_vnc80_nodejs_ssh_paibd:20200324 <br />
