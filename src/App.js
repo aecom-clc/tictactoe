@@ -4,6 +4,7 @@ import Storage from './storage/Storage';
 import { Link } from 'react-router-dom';
 import './App.scss';
 
+import Modal from 'react-awesome-modal';
 /**
  * Initialize the game asking for players information. Manage players
  * turns and set in the board filled slots. 
@@ -23,10 +24,23 @@ class App extends Component {
       filledSlots: new Map(this.props.game.getBoard()),
       winnerSlots: [],
       winnerPlayerId: '',
+      visible : true,
     };
     this.props.game.onGameEnd = this.onGameEnd_.bind(this);
     this.storage_ = new Storage();
     this.onSlotClick_ = this.handleSlotClick_.bind(this);
+  }
+
+  openModal() {
+    this.setState({
+        visible : true
+    });
+  }
+
+  closeModal() {
+      this.setState({
+          visible : false
+      });
   }
 
   componentDidMount() {
@@ -110,21 +124,45 @@ class App extends Component {
     const leaderboardMessage = () => {
       if (this.state.winner) {
         return (
-          <p className="winner-message">
-            {console.log("[log: App.js, this.props]", this.props)}
-            {console.log("[log: App.js, this.props.game.board_]", this.props.game.board_)}
-            {/* Congratulations {this.state.winner.player.name}. */}
-            Congratulations &nbsp;
-            {
-              (this.state.winnerPlayerId == 1)
-                ? this.props.match.params.firstPlayer
-                : this.props.match.params.secondPlayer
-            }
-            {/* Congratulations {this.state.winnerPlayerId}. */}
-            {/* <Link to="/leaderboard">
-              See leaderboard
-            </Link> */}
-          </p>
+          <div>
+            <section>
+                {/* <input type="button" value="Open" onClick={() => this.openModal()} /> */}
+                <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                    <div style={{ color: 'blue', textAlign: 'center' }}>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h1>
+                          Congratulations !
+                          <br/>
+                          {
+                            (this.state.winnerPlayerId == 1)
+                              ? this.props.match.params.firstPlayer
+                              : this.props.match.params.secondPlayer
+                          }
+                        </h1>
+                        <br/>
+                        <a href="/tictactoe/" onClick={() => this.closeModal()}>New Game</a>
+                    </div>
+                </Modal>
+            </section>
+          
+            <p className="winner-message">
+              {console.log("[log: App.js, this.props]", this.props)}
+              {console.log("[log: App.js, this.props.game.board_]", this.props.game.board_)}
+              {/* Congratulations {this.state.winner.player.name}. */}
+              Congratulations &nbsp;
+              {
+                (this.state.winnerPlayerId == 1)
+                  ? this.props.match.params.firstPlayer
+                  : this.props.match.params.secondPlayer
+              }
+              {/* Congratulations {this.state.winnerPlayerId}. */}
+              {/* <Link to="/leaderboard">
+                See leaderboard
+              </Link> */}
+            </p>
+          </div>
         );
       }
     }
