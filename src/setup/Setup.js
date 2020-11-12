@@ -3,6 +3,8 @@ import './setup.scss';
 
 import Grid from '@material-ui/core/Grid'
 
+const logo = require('../images/gamemenu.png')
+
 /**
  * Component responsible for getting players` name and passes it to the parent 
  * component through a function named `onFinishSetup`.
@@ -91,6 +93,24 @@ class Setup extends Component {
         <br />
         <br />
         <Grid container spacing={3} className="font-center">
+          <Grid item xs={12} sm={12}>
+            
+          <header className="">
+            <div className="Header__logo">
+              <a className="Header__logoA" href="https://aecom-clc-gamemenu.web.app/">
+                <img
+                  alt="logo"
+                  className="Header__logoImage"
+                  src={logo}
+                />
+                <span className="Header__logoTitle">CLC Game Menu</span>        
+              </a>
+            </div>
+          </header>
+
+
+
+          </Grid>
           <Grid item xs={12} sm={12}>
             <h1>Tic Tac Toe</h1>
           </Grid>

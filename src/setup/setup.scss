@@ -77,6 +77,24 @@ input {
   text-align: center;
 }
 
+.Header__logo {
+  // display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.Header__logoImage {    
+  width: 30px;
+  margin-right: 20px;
+  vertical-align:middle;    
+}
+
+.Header__logoA {
+  vertical-align: middle;    
+  text-decoration: none;
+  color: #fff;    
+}
+
 .vertical-center {
   margin: 0;
   position: absolute;

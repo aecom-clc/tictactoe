@@ -12,6 +12,8 @@ import Modal from 'react-awesome-modal';
 
 var controlFlag = false;
 
+const logo = require('./images/gamemenu.png')
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -169,6 +171,24 @@ class App extends Component {
     return (
       <div className="tic-tac-toe-app">
         {console.log("[log: App.js, player turn]", this.props.game.playersManager_.currentPlayerIndex_ + 1)}
+        
+        <header className="">
+            <div className="Header__logo">
+              <a className="Header__logoA" href="https://aecom-clc-gamemenu.web.app/">
+                <img
+                  alt="logo"
+                  className="Header__logoImage"
+                  src={logo}
+                />
+                <span className="Header__logoTitle">CLC Game Menu</span>        
+              </a>
+            </div>
+        </header>
+        
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <h3>
           Turn: &nbsp;
